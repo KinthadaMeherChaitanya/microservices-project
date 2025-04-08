@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('build docker image') {
             steps {
-                sh "docker build -t meher27/loadgenservice:v1 ."
+                sh "docker build -t meher27/loadgeneratorservice:v1 ."
             }
         }
         stage ("docker-push") {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker') {
-                    sh "docker push meher27/loadgenservice:v1"
+                    sh "docker push meher27/loadgeneratorservice:v1"
 }
                 }
             }
